@@ -6,7 +6,10 @@ def Analysize(path, words):
             depunc = line.translate(None, string.punctuation)
             despace = " ".join(depunc.split())
             for word in despace.split(' '):
-                if words.has_key(word) == False:
+                if True == word.isdigit() or '' == word.split():
+                    continue
+                word = word.lower()
+                if False == words.has_key(word):
                     words[word] = 1
                 else:
                     words[word] += 1
