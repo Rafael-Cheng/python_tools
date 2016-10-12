@@ -6,7 +6,7 @@ def Analysize(path, words):
             depunc = line.translate(None, string.punctuation)
             despace = " ".join(depunc.split())
             for word in despace.split(' '):
-                if True == word.isdigit() or '' == word.split():
+                if True == word.isdigit() or '' == word:
                     continue
                 word = word.lower()
                 if False == words.has_key(word):
