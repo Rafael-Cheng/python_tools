@@ -15,12 +15,13 @@ def Analysize(path, words):
                     words[word] += 1
     return words
 
-def output(words):
+def output(path, words):
     words = sorted(words.iteritems(), key=lambda d:d[1], reverse = True)
     out = ""
+    out_path = "word_frequency_of_" + path.split('/')[-1]
     for word in words:
         out += str(word) + '\n'
-    with open('output.txt', 'w+') as f:
+    with open(out_path, 'w+') as f:
         f.write(out)
         f.close()
 
@@ -28,4 +29,4 @@ if __name__ == '__main__':
     words = {}
     path = raw_input('Input path of the books=>\n')
     words = Analysize(path, words)
-    output(words)
+    output(path, words)
