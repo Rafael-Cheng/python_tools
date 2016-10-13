@@ -3,9 +3,12 @@ import string
 def Analysize(path, words):
     with open(path, 'r') as book:
         for line in book:
+            # delete punctuations
             depunc = line.translate(None, string.punctuation)
-            despace = " ".join(depunc.split())
-            for word in despace.split(' '):
+            # delete spcaces and spilt
+            despace = depunc.strip().split()
+            # count
+            for word in despace:
                 if True == word.isdigit() or '' == word:
                     continue
                 word = word.lower()
@@ -26,7 +29,8 @@ def output(path, words):
         f.close()
 
 if __name__ == '__main__':
-    words = {}
+    # frequency dictionary
+    words = {} 
     path = raw_input('Input path of the books=>\n')
     words = Analysize(path, words)
     output(path, words)
